@@ -1,0 +1,23 @@
+{
+  "name": "react-booking-calendar",
+  "version": "0.0.1",
+  "description": "Booking calendar React component",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristijanbambir/react-booking-calendar.git"
+  },
+  "keywords": [
+    "react",
+    "calendar"
+  ],
+  "author": "Kristijan Bambir",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kristijanbambir/react-booking-calendar/issues"
+  },
+  "homepage": "https://github.com/kristijanbambir/react-booking-calendar#readme"
+}
