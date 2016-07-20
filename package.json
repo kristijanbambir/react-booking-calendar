@@ -28,6 +28,7 @@
     "component"
   ],
   "author": "Kristijan Bambir <kristijan.bambir@gmail.com> (http://kristijanbambir.from.hr)",
+  "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.0.0",
     "babel-eslint": "^6.0.0",
@@ -71,6 +72,8 @@
   },
   "dependencies": {
     "core-js": "^2.0.0",
+    "font-awesome": "^4.6.3",
+    "moment": "^2.14.1",
     "normalize.css": "^4.0.0",
     "react": "^15.0.0",
     "react-dom": "^15.0.0"
