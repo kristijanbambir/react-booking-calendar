@@ -54,7 +54,7 @@ export default class BookingCalendar extends React.Component {
   renderWeeks() {
     const weeks = [];
     let done = false;
-    const date = this.state.month.clone().startOf('month').add('w' -1).day('Sunday');
+    const date = this.state.month.clone().startOf('month').add('w' - 1).startOf('isoWeek');
     let monthIndex = date.month();
     let count = 0;
 
