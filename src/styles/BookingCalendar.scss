@@ -84,16 +84,16 @@ $border-colour: #CCC;
       float: left;
       width: (100% / 7);
       @include border-box();
-      border-left: solid 1px $border-colour;
+      border-right: solid 1px $border-colour;
       font-size: 0.75em;
       text-align: center;
       @include vertical-centre(30px);
-      background: white;
+      background: transparent;
       cursor: pointer;
       color: black;
 
-      &:first-child {
-        border-left: none;
+      &:last-child {
+        border-right: none;
       }
 
       &.today {
@@ -108,6 +108,28 @@ $border-colour: #CCC;
         background: $secondary-colour;
         color: white;
       }
+
+      &.booked {
+        background: transparent;
+        color: white;
+        position: relative;
+        z-index: 1;
+        border-right: none;
+
+        &:before {
+          background-color: red;
+          content: '';
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 13%;
+          position: absolute;
+          z-index: -1;
+          -webkit-transform: skew(-18deg);
+          -moz-transform: skew(-18deg);
+          -o-transform: skew(-18deg);
+        }
+      }
     }
 
     &.names > span {
@@ -115,4 +137,13 @@ $border-colour: #CCC;
       font-weight: bold;
     }
   }
+}
+
+#parallelogram {
+  width: 150px;
+  height: 100px;
+  -webkit-transform: skew(20deg);
+  -moz-transform: skew(20deg);
+  -o-transform: skew(20deg);
+  background: red;
 }

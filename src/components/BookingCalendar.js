@@ -65,7 +65,8 @@ export default class BookingCalendar extends React.Component {
           date={date.clone()}
           month={this.state.month}
           select={this.select}
-          selected={this.state.selected} />
+          selected={this.state.selected}
+          bookedNights={this.props.bookedNights} />
       );
       date.add(1, 'w');
       done = count++ > 2 && monthIndex !== date.month();
@@ -84,4 +85,7 @@ export default class BookingCalendar extends React.Component {
 }
 
 // Counter.propTypes = { initialCount: React.PropTypes.number };
-BookingCalendar.defaultProps = { selected: moment().startOf('day') };
+BookingCalendar.defaultProps = {
+  bookedNights: [],
+  selected: moment().startOf('day')
+};
