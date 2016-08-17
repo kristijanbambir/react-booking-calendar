@@ -25,6 +25,7 @@ module.exports = {
     hot: true,
     port: defaultSettings.port,
     publicPath: defaultSettings.publicPath,
+    quiet: true,
     noInfo: false
   },
   resolve: {
