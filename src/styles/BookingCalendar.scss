@@ -10,7 +10,7 @@
   -moz-box-sizing: border-box;
 }
 
-$border-colour: #CCC;
+$border-color: #CCC;
 
 .calendar {
   float: left;
@@ -18,10 +18,10 @@ $border-colour: #CCC;
   @include border-box();
   background: white;
   width: 300px;
-  border: solid 1px $border-colour;
+  border: solid 1px $border-color;
   margin-bottom: 10px;
 
-  $secondary-colour: #2875C7;
+  $secondary-color: #2875C7;
   $spacing: 10px;
   $icon-width: 40px;
   $header-height: 40px;
@@ -29,7 +29,7 @@ $border-colour: #CCC;
   > div.header {
     float: left;
     width: 100%;
-    background: $secondary-colour;
+    background: $secondary-color;
     height: $header-height;
     color: white;
 
@@ -74,7 +74,7 @@ $border-colour: #CCC;
   > div.week {
     float: left;
     width: 100%;
-    border-top: solid 1px $border-colour;
+    border-top: solid 1px $border-color;
 
     &:first-child {
       border-top: none;
@@ -84,7 +84,7 @@ $border-colour: #CCC;
       float: left;
       width: (100% / 7);
       @include border-box();
-      border-right: solid 1px $border-colour;
+      border-right: solid 1px $border-color;
       font-size: 0.75em;
       text-align: center;
       @include vertical-centre(30px);
@@ -105,19 +105,24 @@ $border-colour: #CCC;
       }
 
       &.selected {
-        background: $secondary-colour;
+        background: $secondary-color;
         color: white;
+
+        &::before,
+        &::after {
+          content: none;
+        }
       }
 
-      &.booked {
+      &.booked-day {
         background: transparent;
-        color: white;
+        border-right: none;
+        overflow: hidden;
         position: relative;
         z-index: 1;
-        border-right: none;
 
-        &:before {
-          background-color: red;
+        &::before {
+          background-color: $border-color;
           content: '';
           width: 100%;
           height: 100%;
@@ -130,10 +135,32 @@ $border-colour: #CCC;
           -o-transform: skew(-18deg);
         }
       }
+
+      &.booked-night {
+        background: transparent;
+        border-right: none;
+        overflow: hidden;
+        position: relative;
+        z-index: 1;
+
+        &::after {
+          background-color: $border-color;
+          content: '';
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: -87%;
+          position: absolute;
+          z-index: -1;
+          -webkit-transform: skew(-18deg);
+          -moz-transform: skew(-18deg);
+          -o-transform: skew(-18deg);
+        }
+      }
     }
 
     &.names > span {
-      color: $secondary-colour;
+      color: $secondary-color;
       font-weight: bold;
     }
   }

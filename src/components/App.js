@@ -5,19 +5,24 @@ import BookingCalendar from './BookingCalendar';
 
 export default class AppComponent extends React.Component {
 
-  bookedNights() {
+  bookings() {
     return [
+      new Date(2016, 7, 14),
+      new Date(2016, 7, 15),
       new Date(2016, 7, 16),
       new Date(2016, 7, 17),
       new Date(2016, 7, 18),
-      new Date(2016, 7, 19)
+      new Date(2016, 7, 19),
+      new Date(2016, 7, 20),
+      new Date(2016, 7, 21),
+      new Date(2016, 7, 22)
     ];
   }
 
   render() {
     return (
       <div className="index">
-        <BookingCalendar bookedNights={this.bookedNights()} />
+        <BookingCalendar bookings={this.bookings()} />
       </div>
     );
   }
