@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 function sortDatesAsc(date1, date2) {
   return date1 > date2 ? 1 : date1 < date2 ? -1 : 0;
@@ -8,7 +9,8 @@ function isBookedDay(date, bookings) {
   let isBooked = false;
   const sortedBookings = bookings.sort(sortDatesAsc);
   for (let i = 0; i < sortedBookings.length; i++) {
-    if (date.isSame(sortedBookings[i], 'day') && sortedBookings[i + 1]) {
+    if (date.isSame(sortedBookings[i], 'day') &&
+      sortedBookings[i + 1] && date.isSame(moment(sortedBookings[i + 1]).subtract(1, 'days'), 'day')) {
       isBooked = true;
       break;
     }
@@ -20,7 +22,8 @@ function isBookedNight(date, bookings) {
   let isBooked = false;
   const sortedBookings = bookings.sort(sortDatesAsc);
   for (let i = 0; i < sortedBookings.length; i++) {
-    if (date.isSame(sortedBookings[i], 'day') && sortedBookings[i - 1]) {
+    if (date.isSame(sortedBookings[i], 'day') &&
+      sortedBookings[i - 1] && date.isSame(moment(sortedBookings[i - 1]).add(1, 'days'), 'day')) {
       isBooked = true;
       break;
     }

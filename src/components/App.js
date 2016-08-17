@@ -7,6 +7,9 @@ export default class AppComponent extends React.Component {
 
   bookings() {
     return [
+      new Date(2016, 7, 9),
+      new Date(2016, 7, 10),
+      new Date(2016, 7, 11),
       new Date(2016, 7, 14),
       new Date(2016, 7, 15),
       new Date(2016, 7, 16),
