@@ -116,7 +116,6 @@ $border-color: #CCC;
 
       &.booked-day {
         background: transparent;
-        border-right: none;
         overflow: hidden;
         position: relative;
         z-index: 1;
@@ -138,7 +137,6 @@ $border-color: #CCC;
 
       &.booked-night {
         background: transparent;
-        border-right: none;
         overflow: hidden;
         position: relative;
         z-index: 1;
