@@ -9,8 +9,7 @@ function isBookedDay(date, bookings) {
   let isBooked = false;
   const sortedBookings = bookings.sort(sortDatesAsc);
   for (let i = 0; i < sortedBookings.length; i++) {
-    if (date.isSame(sortedBookings[i], 'day') &&
-      sortedBookings[i + 1] && date.isSame(moment(sortedBookings[i + 1]).subtract(1, 'days'), 'day')) {
+    if (date.isSame(sortedBookings[i], 'day')) {
       isBooked = true;
       break;
     }
@@ -22,8 +21,7 @@ function isBookedNight(date, bookings) {
   let isBooked = false;
   const sortedBookings = bookings.sort(sortDatesAsc);
   for (let i = 0; i < sortedBookings.length; i++) {
-    if (date.isSame(sortedBookings[i], 'day') &&
-      sortedBookings[i - 1] && date.isSame(moment(sortedBookings[i - 1]).add(1, 'days'), 'day')) {
+    if (date.isSame(moment(sortedBookings[i]).add(1, 'days'), 'day')) {
       isBooked = true;
       break;
     }
