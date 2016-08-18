@@ -5,11 +5,12 @@ function sortDatesAsc(date1, date2) {
   return date1 > date2 ? 1 : date1 < date2 ? -1 : 0;
 }
 
-function isBookedDay(date, bookings) {
+function isBooked(date, bookings, isNight) {
   let isBooked = false;
   const sortedBookings = bookings.sort(sortDatesAsc);
   for (let i = 0; i < sortedBookings.length; i++) {
-    if (date.isSame(sortedBookings[i], 'day')) {
+    const currentBooking = isNight ? moment(sortedBookings[i]).add(1, 'days') : sortedBookings[i];
+    if (date.isSame(currentBooking, 'day')) {
       isBooked = true;
       break;
     }
@@ -17,16 +18,12 @@ function isBookedDay(date, bookings) {
   return isBooked;
 }
 
+function isBookedDay(date, bookings) {
+  return isBooked(date, bookings, false);
+}
+
 function isBookedNight(date, bookings) {
-  let isBooked = false;
-  const sortedBookings = bookings.sort(sortDatesAsc);
-  for (let i = 0; i < sortedBookings.length; i++) {
-    if (date.isSame(moment(sortedBookings[i]).add(1, 'days'), 'day')) {
-      isBooked = true;
-      break;
-    }
-  }
-  return isBooked;
+  return isBooked(date, bookings, true);
 }
 
 const Week = (props) => {
