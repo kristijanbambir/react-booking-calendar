@@ -1,4 +1,13 @@
-module.exports = function(config) {
+/**
+Loads configuration while ensuring sounce-map is enabled
+*/
+const loadWebpackConfig = () => {
+  const webpackConfig = require('./webpack.config.js');
+  webpackConfig.devtool = 'inline-source-map';
+  return webpackConfig;
+}
+
+module.exports = (config) => {
   config.set({
     basePath: '.',
 
@@ -32,13 +41,3 @@ module.exports = function(config) {
     singleRun: true
   });
 };
-
-
-/**
-  Loads configuration while ensuring sounce-map is enabled
- */
-function loadWebpackConfig () {
-  var webpackConfig = require('./webpack.config.js');
-  webpackConfig.devtool = 'inline-source-map';
-  return webpackConfig;
-}
