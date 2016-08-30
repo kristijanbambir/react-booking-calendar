@@ -1,32 +1,36 @@
-'use strict';
-
+/* jshint node: true */
 const path = require('path');
-const args = require('minimist')(process.argv.slice(2));
 
-// List of allowed environments
-const allowedEnvs = ['dev', 'dist', 'test'];
+module.exports = {
+  context: path.join(__dirname),
+  entry: './lib/index.js',
 
-// Set the correct environment
-let env;
-if (args._.length > 0 && args._.indexOf('start') !== -1) {
-  env = 'test';
-} else if (args.env) {
-  env = args.env;
-} else {
-  env = 'dev';
-}
-process.env.REACT_WEBPACK_ENV = env;
+  output: {
+    path: path.join(__dirname),
+    filename: 'index.js',
+    libraryTarget: 'umd',
+    library: 'BookingCalendar'
+  },
 
-/**
- * Build the webpack configuration
- * @param  {String} wantedEnv The wanted environment
- * @return {Object} Webpack config
- */
-function buildConfig(wantedEnv) {
-  const isValid = wantedEnv && wantedEnv.length > 0 && allowedEnvs.indexOf(wantedEnv) !== -1;
-  const validEnv = isValid ? wantedEnv : 'dev';
-  const config = require(path.join(__dirname, 'cfg/' + validEnv));
-  return config;
-}
+  externals: {
+   'react': 'var React',
+   'react/addons': 'var React'
+  },
 
-module.exports = buildConfig(env);
+  module: {
+    loaders: [
+      {
+        test: /\.scss$/,
+        // Query parameters are passed to node-sass
+        loader: 'style!css!sass?outputStyle=expanded&' +
+          'includePaths[]=' + (path.resolve(__dirname, './bower_components')) + '&' +
+          'includePaths[]=' + (path.resolve(__dirname, './node_modules'))
+      },
+      {
+        test: /(\.js)|(\.jsx)$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      }
+    ]
+  }
+};
