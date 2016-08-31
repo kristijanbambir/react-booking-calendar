@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import moment from 'moment';
 
 export default class Week extends React.Component {
 
   sortDatesAsc(date1, date2) {
-    return date1 > date2 ? 1 : date1 < date2 ? -1 : 0;
+    if (date1 > date2) {
+      return 1;
+    }
+    return date1 < date2 ? -1 : 0;
   }
 
   isBooked(date, isNight) {
@@ -41,13 +44,32 @@ export default class Week extends React.Component {
         isBookedNight: this.isBookedNight(date),
         isCurrentMonth: date.month() === month.month(),
         isToday: date.isSame(new Date(), 'day'),
-        date: date
+        date,
       };
+
+      let className = 'day';
+      if (day.isToday) {
+        className += ' today';
+      }
+      if (day.isCurrentMonth) {
+        className += ' different-month';
+      }
+      if (day.date.isSame(this.props.selected)) {
+        className += ' selected';
+      }
+      if (day.isBookedDay) {
+        className += ' booked-day';
+      }
+      if (day.isBookedNight) {
+        className += ' booked-night';
+      }
+
       days.push(
         <span
           key={day.date.toString()}
-          className={`day${day.isToday ? ' today' : ''}${day.isCurrentMonth ? '' : ' different-month'}${day.date.isSame(this.props.selected) ? ' selected' : ''}${day.isBookedDay ? ' booked-day' : ''}${day.isBookedNight ? ' booked-night' : ''}`}
-          onClick={this.props.select.bind(null, day)}>
+          className={className}
+          onClick={() => this.props.selectHandler(day)}
+        >
           {day.number}
         </span>);
       date = date.clone();
@@ -58,7 +80,15 @@ export default class Week extends React.Component {
       <div className='week' key={days[0].toString()}>
         {days}
       </div>
-    )
+    );
   }
 
 }
+
+Week.propTypes = {
+  bookings: PropTypes.array,
+  date: PropTypes.object,
+  month: PropTypes.object,
+  selected: PropTypes.object,
+  selectHandler: PropTypes.func,
+};

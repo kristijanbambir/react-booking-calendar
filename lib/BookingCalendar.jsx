@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import moment from 'moment';
 import DayNames from './DayNames';
 import Week from './Week';
@@ -12,11 +12,11 @@ export default class BookingCalendar extends Component {
     super(props);
     this.state = {
       month: props.selected.clone(),
-      selected: props.selected
+      selected: props.selected,
     };
     this.previous = this.previous.bind(this);
     this.next = this.next.bind(this);
-    this.select = this.select.bind(this);
+    this.handleSelect = this.handleSelect.bind(this);
   }
 
   previous() {
@@ -31,22 +31,8 @@ export default class BookingCalendar extends Component {
     this.setState({ month });
   }
 
-  select(day) {
+  handleSelect(day) {
     this.setState({ selected: day.date });
-  }
-
-  render() {
-    return (
-      <div className='calendar'>
-        <div className='header'>
-          <i className='fa fa-angle-left' onClick={this.previous}></i>
-          {this.renderMonthLabel()}
-          <i className='fa fa-angle-right' onClick={this.next}></i>
-        </div>
-        <DayNames />
-        {this.renderWeeks()}
-      </div>
-    );
   }
 
   renderWeeks() {
@@ -62,9 +48,10 @@ export default class BookingCalendar extends Component {
           key={date.toString()}
           date={date.clone()}
           month={this.state.month}
-          select={this.select}
+          selectHandler={this.handleSelect}
           selected={this.state.selected}
-          bookings={this.props.bookings} />
+          bookings={this.props.bookings}
+        />
       );
       date.add(1, 'w');
       done = count++ > 2 && monthIndex !== date.month();
@@ -80,13 +67,28 @@ export default class BookingCalendar extends Component {
     );
   }
 
+  render() {
+    return (
+      <div className='calendar'>
+        <div className='header'>
+          <i className='fa fa-angle-left' onClick={this.previous} />
+          {this.renderMonthLabel()}
+          <i className='fa fa-angle-right' onClick={this.next} />
+        </div>
+        <DayNames />
+        {this.renderWeeks()}
+      </div>
+    );
+  }
+
 }
 
-// BookingCalendar.propTypes = {
-//   bookings: PropTypes.array
-// };
+BookingCalendar.propTypes = {
+  bookings: PropTypes.array,
+  selected: PropTypes.object,
+};
 
 BookingCalendar.defaultProps = {
   bookings: [],
-  selected: moment().startOf('day')
+  selected: moment().startOf('day'),
 };
