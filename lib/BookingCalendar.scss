@@ -17,9 +17,11 @@ $spacing: 10px;
   transform: skewX($deg);
 }
 
-@mixin vertical-centre($height) {
+@mixin xy-center() {
   position: absolute;
   top: 50%;
+  left: 0;
+  right: 0;
   transform: translateY(-50%);
 }
 
@@ -40,40 +42,45 @@ $spacing: 10px;
     color: #fff;
     float: left;
     height: 3em;
+    position: relative;
     width: (100% / 7) * 7;
 
-    > .icon-previous,
-    > .icon-next {
-      @include border-box();
-      cursor: pointer;
-      float: left;
-      font-size: 1.125em;
-      font-weight: bold;
-      padding: 0 $spacing;
-      position: relative;
-      width: $icon-width;
-    }
+    > .header-content {
+      @include xy-center();
 
-    > .icon-previous {
-      text-align: left;
-    }
+      > .icon-previous,
+      > .icon-next {
+        @include border-box();
+        cursor: pointer;
+        float: left;
+        font-size: 1.125em;
+        font-weight: bold;
+        padding: 0 $spacing;
+        position: relative;
+        width: $icon-width;
+      }
 
-    > .icon-next {
-      margin-left: $icon-width * (-1);
-      text-align: right;
-    }
+      > .icon-previous {
+        text-align: left;
+      }
 
-    > .month-label {
-      @include border-box();
-      color: inherit;
-      float: left;
-      font-weight: bold;
-      margin-left: $icon-width * (-1);
-      padding-left: $icon-width + $spacing;
-      padding-right: $icon-width;
-      text-align: center;
-      text-transform: uppercase;
-      width: 100%;
+      > .icon-next {
+        margin-left: $icon-width * (-1);
+        text-align: right;
+      }
+
+      > .month-label {
+        @include border-box();
+        color: inherit;
+        float: left;
+        font-weight: bold;
+        margin-left: $icon-width * (-1);
+        padding-left: $icon-width + $spacing;
+        padding-right: $icon-width;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+      }
     }
   }
 
@@ -135,7 +142,6 @@ $spacing: 10px;
         bottom: 0;
         color: #fff;
         cursor: pointer;
-        height: 100%;
         left: 0;
         position: absolute;
         right: 0;
@@ -192,6 +198,10 @@ $spacing: 10px;
           &:after {
             @include bookingPseudo(-80%);
           }
+        }
+
+        > .day-content {
+          @include xy-center();
         }
       }
     }
