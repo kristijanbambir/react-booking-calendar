@@ -9,12 +9,12 @@ module.exports = {
     path: path.join(__dirname),
     filename: 'index.js',
     libraryTarget: 'umd',
-    library: 'BookingCalendar'
+    library: 'BookingCalendar',
   },
 
   externals: {
-   'react': 'var React',
-   'react/addons': 'var React'
+    react: 'var React',
+    'react/addons': 'var React',
   },
 
   module: {
@@ -24,13 +24,13 @@ module.exports = {
         // Query parameters are passed to node-sass
         loader: 'style!css!sass?outputStyle=expanded&' +
           'includePaths[]=' + (path.resolve(__dirname, './bower_components')) + '&' +
-          'includePaths[]=' + (path.resolve(__dirname, './node_modules'))
+          'includePaths[]=' + (path.resolve(__dirname, './node_modules')),
       },
       {
         test: /(\.js)|(\.jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
-  }
+        loader: 'babel-loader',
+      },
+    ],
+  },
 };
