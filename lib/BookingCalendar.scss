@@ -1,5 +1,6 @@
 $color-primary: #2875C7;
 $color-secondary: lighten($color-primary, 20%);
+$color-booked: darken($color-primary, 20%);
 $border: solid 1px lighten($color-secondary, 20%);
 $icon-width: 40px;
 $skew-amount: -18deg;
@@ -159,11 +160,12 @@ $spacing: 10px;
           z-index: 1;
         }
 
-        @mixin bookingPseudo() {
+        @mixin bookingPseudo($left) {
           @include skewX($skew-amount);
-          background-color: red;
+          background-color: $color-booked;
           content: '';
           height: 100%;
+          left: $left;
           position: absolute;
           top: 0;
           width: 100%;
@@ -174,9 +176,7 @@ $spacing: 10px;
           @include booking();
 
           &:before {
-            @include bookingPseudo();
-            background-color: red;
-            left: 20%;
+            @include bookingPseudo(20%);
           }
         }
 
@@ -184,9 +184,7 @@ $spacing: 10px;
           @include booking();
 
           &:after {
-            @include bookingPseudo();
-            background-color: orange;
-            left: -80%;
+            @include bookingPseudo(-80%);
           }
         }
       }
