@@ -8,21 +8,23 @@
   <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>
   <script src="index.js"></script>
   <script>
-    /* jshint undef:false */
+    const date = new Date();
+    const currentYear = date.getFullYear();
+    const currentMonth = date.getMonth();
     ReactDOM.render(React.createElement(BookingCalendar, {
       bookings: [
-        new Date(2016, 8, 9),
-        new Date(2016, 8, 10),
-        new Date(2016, 8, 11),
-        new Date(2016, 8, 14),
-        new Date(2016, 8, 15),
-        new Date(2016, 8, 16),
-        new Date(2016, 8, 17),
-        new Date(2016, 8, 18),
-        new Date(2016, 8, 19),
-        new Date(2016, 8, 20),
-        new Date(2016, 8, 21),
-        new Date(2016, 8, 22)
+        new Date(currentYear, currentMonth, 9),
+        new Date(currentYear, currentMonth, 10),
+        new Date(currentYear, currentMonth, 11),
+        new Date(currentYear, currentMonth, 14),
+        new Date(currentYear, currentMonth, 15),
+        new Date(currentYear, currentMonth, 16),
+        new Date(currentYear, currentMonth, 17),
+        new Date(currentYear, currentMonth, 18),
+        new Date(currentYear, currentMonth, 19),
+        new Date(currentYear, currentMonth, 20),
+        new Date(currentYear, currentMonth, 21),
+        new Date(currentYear, currentMonth, 22)
       ]
     }), document.getElementById('main'));
   </script>
