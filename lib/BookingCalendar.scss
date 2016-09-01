@@ -92,8 +92,14 @@ $spacing: 10px;
     &.names {
       border-top: none;
 
-      > .day-box:before {
-        padding-top: 30%;
+      > .day-box {
+        &:before {
+          padding-top: 30%;
+        }
+
+        > .day {
+          color: $color-secondary;
+        }
       }
     }
 
