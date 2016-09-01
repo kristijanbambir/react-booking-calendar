@@ -78,7 +78,6 @@ $spacing: 10px;
 
   > .week {
     @include border-box();
-    background-color: $color-primary;
     border-right: $border;
     border-top: $border;
     float: left;
@@ -112,12 +111,6 @@ $spacing: 10px;
       &:first-child {
         > .day {
           border-left: $border;
-        }
-      }
-
-      &:last-child {
-        > .day {
-          border-right: none;
         }
       }
 
