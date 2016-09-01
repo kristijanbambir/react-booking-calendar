@@ -37,7 +37,8 @@ $border-color: #CCC;
       @include vertical-centre($header-height);
     }
 
-    > i {
+    > .icon-previous,
+    > .icon-next {
       float: left;
       width: $icon-width;
       font-size: 1.125em;
@@ -48,16 +49,16 @@ $border-color: #CCC;
       cursor: pointer;
     }
 
-    > i.fa-angle-left {
+    > .icon-previous {
       text-align: left;
     }
 
-    > i.fa-angle-right {
+    > .icon-next {
       text-align: right;
       margin-left: $icon-width * (-1);
     }
 
-    > span {
+    > .month-label {
       float: left;
       width: 100%;
       font-weight: bold;
