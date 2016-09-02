@@ -37,6 +37,10 @@ Result:
 
 ![Preview](https://github.com/kristijanbambir/react-booking-calendar/blob/master/preview.png?raw=true)
 
+## Styling
+
+TODO
+
 ## Development
 
 * Development server `npm start`.
