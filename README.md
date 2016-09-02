@@ -33,6 +33,10 @@ const MyBookingCalendar = () => (
 );
 ```
 
+Result:
+
+![Preview](https://github.com/kristijanbambir/react-booking-calendar/blob/master/preview.png?raw=true)
+
 ## Development
 
 * Development server `npm start`.
