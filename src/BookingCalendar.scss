@@ -6,6 +6,11 @@ $icon-width: 40px;
 $skew-amount: -18deg;
 $spacing: 10px;
 
+$screen-xs-min: 600px;
+$screen-sm-min: 768px;
+$screen-md-min: 992px;
+$screen-lg-min: 1200px;
+
 @mixin border-box() {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -30,7 +35,7 @@ $spacing: 10px;
   background: #fff;
   display: block;
   float: left;
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: 10px;
   width: 100%;
 
@@ -100,11 +105,12 @@ $spacing: 10px;
 
       .day-box {
         &:before {
-          padding-top: 30%;
+          padding-top: 50%;
         }
 
         .day {
           color: $color-secondary;
+          font-size: 0.9em;
         }
       }
     }
@@ -141,6 +147,7 @@ $spacing: 10px;
         bottom: 0;
         color: #fff;
         cursor: pointer;
+        font-size: 1em;
         left: 0;
         position: absolute;
         right: 0;
@@ -209,5 +216,29 @@ $spacing: 10px;
       color: $color-secondary;
       font-weight: bold;
     }
+  }
+}
+
+@media (min-width: $screen-xs-min) {
+  .booking-calendar {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .booking-calendar {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: $screen-md-min) {
+  .booking-calendar {
+    font-size: 24px;
+  }
+}
+
+@media (min-width: $screen-lg-min) {
+  .booking-calendar {
+    font-size: 28px;
   }
 }
