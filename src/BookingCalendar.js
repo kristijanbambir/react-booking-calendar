@@ -37,7 +37,9 @@ export default class BookingCalendar extends Component {
 
   renderMonthLabel() {
     return (
-      <span className='month-label'>{this.state.month.format('MMMM, YYYY')}</span>
+      <span className='month-label'>
+        {this.state.month.format('MMMM, YYYY')}
+      </span>
     );
   }
 

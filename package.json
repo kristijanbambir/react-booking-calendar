@@ -2,7 +2,7 @@
   "name": "react-booking-calendar",
   "version": "1.0.0",
   "description": "react booking calendar generated",
-  "main": "dist/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "eslint lib/ spec/ && ./node_modules/karma/bin/karma start karma.conf.js",
     "watch-test": "./node_modules/karma/bin/karma start karma.conf.js --auto-watch --no-single-run",
@@ -11,13 +11,21 @@
     "start": "webpack-dev-server --inline --hot",
     "postinstall": "bower install"
   },
-  "author": "",
-  "license": "BSD",
+  "author": "Kristijan Bambir <kristijan.bambir@gmail.com> (http://kristijanbambir.from.hr)",
+  "license": "MIT",
   "keywords": [
     "react",
     "reactjs",
     "react-component"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kristijanbambir/react-booking-calendar.git"
+  },
+  "dependencies": {
+    "babel-runtime": "~6.11.6",
+    "moment": "2.x"
+  },
   "devDependencies": {
     "babel-core": "~6.14.0",
     "babel-eslint": "^6.1.2",
@@ -41,14 +49,14 @@
     "karma-webpack": "~1.8.0",
     "node-sass": "3.8.0",
     "phantomjs-prebuilt": "2.1.12",
+    "react": "15.x",
+    "react-dom": "15.x",
     "sass-loader": "~4.0.0",
     "style-loader": "~0.13.1",
     "webpack": "~1.13.2",
     "webpack-dev-server": "~1.15.0"
   },
-  "dependencies": {
-    "babel-runtime": "~6.11.6",
-    "moment": "2.14.1",
-    "react": "~15.3.1"
+  "peerDependencies": {
+    "react": "15.x"
   }
 }

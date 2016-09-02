@@ -1,16 +1,17 @@
-import React from 'react/addons';
-import BookingCalendar from '../lib/booking-calendar';
+import React from 'react';
+import ReactTestUtils from 'react-addons-test-utils';
+import BookingCalendar from '../src/BookingCalendar';
 
 describe('BookingCalendar', () => {
   let component;
 
-  beforeEach(function() {
-    component = React.addons.TestUtils.renderIntoDocument(
-      <BookingCalendar/>
+  beforeEach(() => {
+    component = ReactTestUtils.renderIntoDocument(
+      <BookingCalendar />
     );
   });
 
-  it('should render', function() {
+  it('should render', () => {
     expect(component.getDOMNode().className).toEqual('booking-calendar');
   });
 });

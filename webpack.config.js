@@ -3,18 +3,14 @@ const path = require('path');
 
 module.exports = {
   context: path.join(__dirname),
-  entry: './lib/index.js',
+  entry: './src/index.js',
 
   output: {
-    path: path.join(__dirname),
+    path: path.join(__dirname, 'lib'),
     filename: 'index.js',
     libraryTarget: 'umd',
     library: 'BookingCalendar',
-  },
-
-  externals: {
-    react: 'var React',
-    'react/addons': 'var React',
+    publicPath: '/lib/',
   },
 
   module: {
