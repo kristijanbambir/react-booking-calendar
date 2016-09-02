@@ -30,12 +30,11 @@ $spacing: 10px;
   background: #fff;
   display: block;
   float: left;
-  font-family: sans-serif;
   font-size: 16px;
   margin-bottom: 10px;
   width: 100%;
 
-  > .header {
+  .header {
     @include border-box();
     background: $color-primary;
     border: $border;
@@ -45,11 +44,11 @@ $spacing: 10px;
     position: relative;
     width: (100% / 7) * 7;
 
-    > .header-content {
+    .header-content {
       @include xy-center();
 
-      > .icon-previous,
-      > .icon-next {
+      .icon-previous,
+      .icon-next {
         @include border-box();
         cursor: pointer;
         float: left;
@@ -60,16 +59,16 @@ $spacing: 10px;
         width: $icon-width;
       }
 
-      > .icon-previous {
+      .icon-previous {
         text-align: left;
       }
 
-      > .icon-next {
+      .icon-next {
         margin-left: $icon-width * (-1);
         text-align: right;
       }
 
-      > .month-label {
+      .month-label {
         @include border-box();
         color: inherit;
         float: left;
@@ -84,7 +83,7 @@ $spacing: 10px;
     }
   }
 
-  > .week {
+  .week {
     @include border-box();
     background-color: $color-primary;
     border-right: $border;
@@ -99,18 +98,18 @@ $spacing: 10px;
     &.names {
       border-top: none;
 
-      > .day-box {
+      .day-box {
         &:before {
           padding-top: 30%;
         }
 
-        > .day {
+        .day {
           color: $color-secondary;
         }
       }
     }
 
-    > .day-box {
+    .day-box {
       @include border-box();
       float: left;
       position: relative;
@@ -124,18 +123,18 @@ $spacing: 10px;
       }
 
       &:first-child {
-        > .day {
+        .day {
           border-left: $border;
         }
       }
 
       &:last-child {
-        > .day {
+        .day {
           border-right: none;
         }
       }
 
-      > .day {
+      .day {
         @include border-box();
         background: $color-primary;
         border-right: $border;

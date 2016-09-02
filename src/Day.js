@@ -16,4 +16,8 @@ Day.propTypes = {
   clickHandler: PropTypes.func,
 };
 
+Day.defaultProps = {
+  className: '',
+};
+
 export default Day;
