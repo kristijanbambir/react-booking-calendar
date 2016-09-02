@@ -14,7 +14,7 @@ npm install --save react-booking-calendar
 
 ## Usage
 
-```jsx
+```js
 import React from 'react';
 import BookingCalendar from 'react-booking-calendar';
 
