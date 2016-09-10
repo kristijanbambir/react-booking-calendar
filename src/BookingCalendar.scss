@@ -55,6 +55,9 @@ $screen-lg-min: 1200px;
       .icon-previous,
       .icon-next {
         @include border-box();
+        background: none;
+        border: none;
+        color: #fff;
         cursor: pointer;
         float: left;
         font-size: 1.125em;
@@ -153,6 +156,10 @@ $screen-lg-min: 1200px;
         right: 0;
         text-align: center;
         top: 0;
+
+        &.not-clickable {
+          cursor: default;
+        }
 
         &.different-month {
           color: $color-secondary;

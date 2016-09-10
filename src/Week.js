@@ -64,6 +64,9 @@ export default class Week extends React.Component {
       if (day.isBookedNight) {
         className += ' booked-night';
       }
+      if (!this.props.clickable) {
+        className += ' not-clickable';
+      }
 
       days.push(
         <Day
@@ -90,6 +93,7 @@ export default class Week extends React.Component {
 
 Week.propTypes = {
   bookings: PropTypes.array,
+  clickable: PropTypes.bool.isRequired,
   date: PropTypes.object,
   month: PropTypes.object,
   selected: PropTypes.object,

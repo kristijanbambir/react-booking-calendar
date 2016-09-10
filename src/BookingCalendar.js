@@ -3,8 +3,6 @@ import moment from 'moment';
 import DayNames from './DayNames';
 import Week from './Week';
 import './BookingCalendar.scss';
-// require('normalize.css/normalize.css');
-// require('font-awesome/css/font-awesome.css');
 
 export default class BookingCalendar extends Component {
 
@@ -32,7 +30,9 @@ export default class BookingCalendar extends Component {
   }
 
   handleSelect(day) {
-    this.setState({ selected: day.date });
+    if (this.props.clickable) {
+      this.setState({ selected: day.date });
+    }
   }
 
   renderMonthLabel() {
@@ -53,12 +53,13 @@ export default class BookingCalendar extends Component {
     while (!done) {
       weeks.push(
         <Week
-          key={date.toString()}
-          date={date.clone()}
-          month={this.state.month}
-          selectHandler={this.handleSelect}
-          selected={this.state.selected}
           bookings={this.props.bookings}
+          clickable={this.props.clickable}
+          date={date.clone()}
+          key={date.toString()}
+          month={this.state.month}
+          selected={this.state.selected}
+          selectHandler={this.handleSelect}
         />
       );
       date.add(1, 'w');
@@ -74,9 +75,9 @@ export default class BookingCalendar extends Component {
       <div className='booking-calendar'>
         <div className='header'>
           <div className='header-content'>
-            <span className='icon-previous' onClick={this.previous}>{'<'}</span>
+            <button className='icon-previous' onClick={this.previous}>{'<'}</button>
             {this.renderMonthLabel()}
-            <span className='icon-next' onClick={this.next}>{'>'}</span>
+            <button className='icon-next' onClick={this.next}>{'>'}</button>
           </div>
         </div>
         <DayNames />
@@ -89,10 +90,12 @@ export default class BookingCalendar extends Component {
 
 BookingCalendar.propTypes = {
   bookings: PropTypes.array,
+  clickable: PropTypes.bool,
   selected: PropTypes.object,
 };
 
 BookingCalendar.defaultProps = {
   bookings: [],
+  clickable: false,
   selected: moment().startOf('day'),
 };
