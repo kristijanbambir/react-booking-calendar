@@ -22,7 +22,6 @@ export default class BookingCalendar extends Component {
     if (this.props.disableHistory) {
       const previousDisabled = this.state.month.isSame(moment(), 'month') && this.state.month.isSame(moment(), 'year');
       this.setState({ previousDisabled });
-      console.log('previousDisabled', this.state.previousDisabled);
     }
   }
 
