@@ -2,10 +2,6 @@
 
 A responsive customizable React booking calendar.
 
-## Demo
-
-TODO
-
 ## Installation
 
 ```bash
