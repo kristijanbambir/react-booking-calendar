@@ -35,7 +35,7 @@ const MyBookingCalendar = () => (
 
 Result:
 
-![Preview](https://github.com/kristijanbambir/react-booking-calendar/blob/master/preview.png?raw=true)
+<img src="https://github.com/kristijanbambir/react-booking-calendar/blob/master/preview.png?raw=true" width="292">
 
 ## Options
 
