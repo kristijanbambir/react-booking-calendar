@@ -6,7 +6,7 @@ A responsive customizable React booking calendar.
 
 TODO
 
-## Installation (Not yet on npm)
+## Installation
 
 ```bash
 npm install --save react-booking-calendar
@@ -39,11 +39,41 @@ Result:
 
 ## Styling
 
-TODO
+CSS class taxonomy:
+
+```sass
+.booking-calendar {
+  .header {
+    .header-content {
+      .icon-previous {}
+      .icon-next {}
+      .month-label {}
+    }
+  }
+
+  .week {
+    &.names {
+      .day-box .day {}
+    }
+
+    .day-box .day {
+      &.different-month {}
+      &.selected {}
+      &.today {}
+      &.booked-day:before {}
+      &.booked-night:after {}
+    }
+  }
+}
+```
 
 ## Development
 
-* Development server `npm start`.
-* Continuously run tests on file changes `npm run watch-test`;
-* Run tests: `npm test`;
-* Build `npm run build`;
+* Development server: `npm start`
+* Continuously run tests on file changes: `npm run watch-test`
+* Run tests: `npm test`
+* Build: `npm run build`
+
+## TODOS
+
+- [ ] Add tests
