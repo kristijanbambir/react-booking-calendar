@@ -65,6 +65,10 @@ $screen-lg-min: 1200px;
         padding: 0 $spacing;
         position: relative;
         width: $icon-width;
+
+        &:disabled {
+          color: $color-secondary;
+        }
       }
 
       .icon-previous {

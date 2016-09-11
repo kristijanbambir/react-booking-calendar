@@ -9,24 +9,35 @@ export default class BookingCalendar extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      previousDisabled: this.props.disableHistory,
       month: props.selected.clone(),
       selected: props.selected,
     };
-    this.previous = this.previous.bind(this);
-    this.next = this.next.bind(this);
+    this.handlePrevious = this.handlePrevious.bind(this);
+    this.handleNext = this.handleNext.bind(this);
     this.handleSelect = this.handleSelect.bind(this);
   }
 
-  previous() {
-    const month = this.state.month;
-    month.add(-1, 'M');
-    this.setState({ month });
+  updatePreviousState() {
+    if (this.props.disableHistory) {
+      const previousDisabled = this.state.month.isSame(moment(), 'month') && this.state.month.isSame(moment(), 'year');
+      this.setState({ previousDisabled });
+      console.log('previousDisabled', this.state.previousDisabled);
+    }
   }
 
-  next() {
+  handlePrevious() {
+    const month = this.state.month;
+    month.subtract(1, 'M');
+    this.setState({ month });
+    this.updatePreviousState();
+  }
+
+  handleNext() {
     const month = this.state.month;
     month.add(1, 'M');
     this.setState({ month });
+    this.updatePreviousState();
   }
 
   handleSelect(day) {
@@ -75,9 +86,15 @@ export default class BookingCalendar extends Component {
       <div className='booking-calendar'>
         <div className='header'>
           <div className='header-content'>
-            <button className='icon-previous' onClick={this.previous}>{'<'}</button>
+            <button
+              className='icon-previous'
+              disabled={this.state.previousDisabled}
+              onClick={this.handlePrevious}
+            >
+              {'<'}
+            </button>
             {this.renderMonthLabel()}
-            <button className='icon-next' onClick={this.next}>{'>'}</button>
+            <button className='icon-next' onClick={this.handleNext}>{'>'}</button>
           </div>
         </div>
         <DayNames />
@@ -91,11 +108,13 @@ export default class BookingCalendar extends Component {
 BookingCalendar.propTypes = {
   bookings: PropTypes.array,
   clickable: PropTypes.bool,
+  disableHistory: PropTypes.bool,
   selected: PropTypes.object,
 };
 
 BookingCalendar.defaultProps = {
   bookings: [],
   clickable: false,
+  disableHistory: false,
   selected: moment().startOf('day'),
 };
