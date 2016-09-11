@@ -42,7 +42,7 @@ Result:
 | Prop             | Type        | Default            | Description                                            |
 | ---------------- | ----------- | ------------------ | ------------------------------------------------------ |
 | `bookings`       | array[Date] | []                 | Dates that will be rendered on the calendar as booked. |
-| `clickable`      | bool        | false              | Make days selectable.                                  |
+| `clickable`      | bool        | false              | Make days clickable.                                   |
 | `disableHistory` | bool        | false              | Disable navigating before current month.               |
 | `selected`       | Date        | today start of day | Default selected day if `clickable` is set.            |
 
