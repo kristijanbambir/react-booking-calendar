@@ -37,6 +37,15 @@ Result:
 
 ![Preview](https://github.com/kristijanbambir/react-booking-calendar/blob/master/preview.png?raw=true)
 
+## Options
+
+| Prop             | Type        | Default            | Description                                            |
+| ---------------- | ----------- | ------------------ | ------------------------------------------------------ |
+| `bookings`       | array[Date] | []                 | Dates that will be rendered on the calendar as booked. |
+| `clickable`      | bool        | false              | Make days selectable.                                  |
+| `disableHistory` | bool        | false              | Disable navigating before current month.               |
+| `selected`       | Date        | today start of day | Default selected day if `clickable` is set.            |
+
 ## Styling
 
 CSS class taxonomy:
