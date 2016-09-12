@@ -79,6 +79,20 @@ CSS class taxonomy:
 * Run tests: `npm test`
 * Build: `npm run build`
 
-## TODOS
+## Todos
 
 - [ ] Add tests
+
+## Changelog
+
+### 1.0.2 (unreleased)
+
+* Changed `bookings` prop type definition
+
+### 1.0.1
+
+* Removed console log statements
+
+### 1.0.0
+
+* Initial version
