@@ -87,9 +87,10 @@ CSS class taxonomy:
 
 ## Changelog
 
-### 1.0.2 (unreleased)
+### 1.0.2
 
 * Changed `bookings` prop type definition
+* Fixed header vertical positioning
 
 ### 1.0.1
 
