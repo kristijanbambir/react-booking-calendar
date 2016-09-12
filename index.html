@@ -4,9 +4,45 @@
   <title>Booking Calendar</title>
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.blue-orange.min.css">
+  <style>
+    .mdl-layout__header-row {
+      padding-left: 40px;
+    }
+    @media (max-width: 600px) {
+      .mdl-layout__header-row {
+        padding-left: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div id="main" style="width: 50%; margin: 0 auto; font-family: sans-serif;"></div>
+  <div class="mdl-layout mdl-layout--fixed-header mdl-js-layout">
+    <header class="mdl-layout__header mdl-layout__header--scroll">
+      <div class="mdl-layout__header-row">
+        <span class="mdl-layout__title">
+          React Booking Calendar
+        </span>
+        <div class="mdl-layout-spacer"></div>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link" href="https://github.com/kristijanbambir/react-booking-calendar">
+            <i class="fa fa-2x fa-github"></i>
+          </a>
+        </nav>
+      </div>
+    </header>
+    <main class="mdl-layout__content">
+      <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="main-content content mdl-cell mdl-cell--8-col">
+            <div id="main"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <script src="https://use.fontawesome.com/f757ed9a8c.js"></script>
   <script src="https://unpkg.com/react@15.3.1/dist/react.js"></script>
   <script src="https://unpkg.com/react-dom@15.3.1/dist/react-dom.js"></script>
   <script src="lib/index.js"></script>
