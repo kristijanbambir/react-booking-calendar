@@ -2,6 +2,8 @@
 
 A responsive customizable React booking calendar.
 
+[DEMO](https://kristijanbambir.github.io/react-booking-calendar/)
+
 ## Installation
 
 ```bash
