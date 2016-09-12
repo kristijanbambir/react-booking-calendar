@@ -2,7 +2,6 @@ $color-primary: #2196f3;
 $color-secondary: lighten($color-primary, 20%);
 $color-booked: darken($color-primary, 20%);
 $border: solid 1px lighten($color-secondary, 20%);
-$icon-width: 40px;
 $skew-amount: -18deg;
 $spacing: 10px;
 
@@ -44,27 +43,23 @@ $screen-lg-min: 1200px;
     background: $color-primary;
     border: $border;
     color: #fff;
-    float: left;
     height: 3em;
     position: relative;
-    width: (100% / 7) * 7;
 
     .header-content {
-      @include xy-center();
-
       .icon-previous,
-      .icon-next {
-        @include border-box();
+      .icon-next,
+      .month-label {
         background: none;
         border: none;
         color: #fff;
         cursor: pointer;
-        float: left;
         font-size: 1.125em;
         font-weight: bold;
-        padding: 0 $spacing;
-        position: relative;
-        width: $icon-width;
+        position: absolute;
+        text-transform: uppercase;
+        top: 50%;
+        transform: translateY(-50%);
 
         &:disabled {
           color: $color-secondary;
@@ -72,25 +67,17 @@ $screen-lg-min: 1200px;
       }
 
       .icon-previous {
-        text-align: left;
+        left: 0;
       }
 
       .icon-next {
-        margin-left: $icon-width * (-1);
-        text-align: right;
+        right: 0;
       }
 
       .month-label {
-        @include border-box();
-        color: inherit;
-        float: left;
-        font-weight: bold;
-        margin-left: $icon-width * (-1);
-        padding-left: $icon-width + $spacing;
-        padding-right: $icon-width;
+        left: 0;
+        right: 0;
         text-align: center;
-        text-transform: uppercase;
-        width: 100%;
       }
     }
   }

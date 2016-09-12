@@ -85,14 +85,10 @@ export default class BookingCalendar extends Component {
       <div className='booking-calendar'>
         <div className='header'>
           <div className='header-content'>
-            <button
-              className='icon-previous'
-              disabled={this.state.previousDisabled}
-              onClick={this.handlePrevious}
-            >
+            {this.renderMonthLabel()}
+            <button className='icon-previous' disabled={this.state.previousDisabled} onClick={this.handlePrevious}>
               {'<'}
             </button>
-            {this.renderMonthLabel()}
             <button className='icon-next' onClick={this.handleNext}>{'>'}</button>
           </div>
         </div>
