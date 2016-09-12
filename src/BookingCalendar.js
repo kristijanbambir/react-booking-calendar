@@ -105,7 +105,7 @@ export default class BookingCalendar extends Component {
 }
 
 BookingCalendar.propTypes = {
-  bookings: PropTypes.array,
+  bookings: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
   clickable: PropTypes.bool,
   disableHistory: PropTypes.bool,
   selected: PropTypes.object,
