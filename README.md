@@ -87,6 +87,10 @@ CSS class taxonomy:
 
 ## Changelog
 
+### 1.0.3
+
+* Removed Bower dependencies
+
 ### 1.0.2
 
 * Changed `bookings` prop type definition
