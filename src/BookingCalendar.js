@@ -1,7 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import DayNames from './DayNames';
 import Week from './Week';
+
 import './BookingCalendar.scss';
 
 export default class BookingCalendar extends Component {
@@ -26,14 +28,14 @@ export default class BookingCalendar extends Component {
   }
 
   handlePrevious() {
-    const month = this.state.month;
+    const { month } = this.state;
     month.subtract(1, 'M');
     this.setState({ month });
     this.updatePreviousState();
   }
 
   handleNext() {
-    const month = this.state.month;
+    const { month } = this.state;
     month.add(1, 'M');
     this.setState({ month });
     this.updatePreviousState();
@@ -61,19 +63,18 @@ export default class BookingCalendar extends Component {
     let count = 0;
 
     while (!done) {
-      weeks.push(
-        <Week
-          bookings={this.props.bookings}
-          clickable={this.props.clickable}
-          date={date.clone()}
-          key={date.toString()}
-          month={this.state.month}
-          selected={this.state.selected}
-          selectHandler={this.handleSelect}
-        />
-      );
+      weeks.push(<Week
+        bookings={this.props.bookings}
+        clickable={this.props.clickable}
+        date={date.clone()}
+        key={date.toString()}
+        month={this.state.month}
+        selected={this.state.selected}
+        selectHandler={this.handleSelect}
+      />);
       date.add(1, 'w');
-      done = count++ > 2 && monthIndex !== date.month();
+      done = count > 2 && monthIndex !== date.month();
+      count += 1;
       monthIndex = date.month();
     }
 

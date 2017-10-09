@@ -1,4 +1,3 @@
-/* jshint node: true */
 const path = require('path');
 
 module.exports = {
@@ -14,18 +13,21 @@ module.exports = {
   },
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.scss$/,
-        // Query parameters are passed to node-sass
-        loader: 'style!css!sass?outputStyle=expanded&' +
-          'includePaths[]=' + (path.resolve(__dirname, './bower_components')) + '&' +
-          'includePaths[]=' + (path.resolve(__dirname, './node_modules')),
+        use: [{
+          loader: 'style-loader', // creates style nodes from JS strings
+        }, {
+          loader: 'css-loader', // translates CSS into CommonJS
+        }, {
+          loader: 'sass-loader', // compiles Sass to CSS
+        }],
       },
       {
         test: /(\.js)|(\.jsx)$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: 'babel-loader',
       },
     ],
   },

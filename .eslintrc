@@ -1,22 +1,9 @@
 {
   "extends": "airbnb",
-  "parser": "babel-eslint",
-  "env": {
-    "browser": true,
-    "mocha": true,
-    "node": true,
-   },
-   "ecmaFeatures": {
-     "classes": true,
-     "es6": true,
-    # "jsx": true,
-   },
-   "rules": {
-     "arrow-body-style": [0],
-     "comma-dangle": [1, "always-multiline"],
-     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
-     "jsx-quotes": [1, "prefer-single"],
-     "max-len": [1, 120, 2],
-     "no-underscore-dangle": [2, { "allow": [ "_id" ] }],
-   },
- }
+  "rules": {
+    "jsx-quotes": ["error", "prefer-single"],
+    "max-len": ["error", 120],
+    "padded-blocks": ["error", { "classes": "always" }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+  }
+}

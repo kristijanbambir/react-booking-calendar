@@ -1,20 +1,22 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
+
 import Day from './Day';
+
+const sortDatesAsc = (date1, date2) => {
+  if (date1 > date2) {
+    return 1;
+  }
+  return date1 < date2 ? -1 : 0;
+};
 
 export default class Week extends React.Component {
 
-  sortDatesAsc(date1, date2) {
-    if (date1 > date2) {
-      return 1;
-    }
-    return date1 < date2 ? -1 : 0;
-  }
-
   isBooked(date, isNight) {
     let isBooked = false;
-    const sortedBookings = this.props.bookings.sort(this.sortDatesAsc);
-    for (let i = 0; i < sortedBookings.length; i++) {
+    const sortedBookings = this.props.bookings.sort(sortDatesAsc);
+    for (let i = 0; i < sortedBookings.length; i += 1) {
       const currentBooking = isNight ? moment(sortedBookings[i]).add(1, 'days') : sortedBookings[i];
       if (date.isSame(currentBooking, 'day')) {
         isBooked = true;
@@ -34,10 +36,10 @@ export default class Week extends React.Component {
 
   render() {
     const days = [];
-    const month = this.props.month;
-    let date = this.props.date;
+    const { month } = this.props;
+    let { date } = this.props;
 
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 7; i += 1) {
       const day = {
         name: date.format('dd').substring(0, 1),
         number: date.date(),
@@ -75,7 +77,7 @@ export default class Week extends React.Component {
           clickHandler={() => this.props.selectHandler(day)}
         >
           {day.number}
-        </Day>
+        </Day>,
       );
 
       date = date.clone();

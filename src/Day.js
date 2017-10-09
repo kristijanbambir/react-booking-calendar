@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-const Day = (props) => (
+const Day = props => (
   <div className='day-box'>
     <div className={`day ${props.className}`} onClick={props.clickHandler}>
       <div className='day-content'>
@@ -18,6 +19,7 @@ Day.propTypes = {
 
 Day.defaultProps = {
   className: '',
+  clickHandler: undefined,
 };
 
 export default Day;
