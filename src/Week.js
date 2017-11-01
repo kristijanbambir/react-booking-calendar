@@ -94,10 +94,16 @@ export default class Week extends React.Component {
 }
 
 Week.propTypes = {
-  bookings: PropTypes.array,
+  bookings: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
   clickable: PropTypes.bool.isRequired,
-  date: PropTypes.object,
-  month: PropTypes.object,
-  selected: PropTypes.object,
+  date: PropTypes.instanceOf(moment).isRequired,
+  month: PropTypes.instanceOf(moment).isRequired,
+  selected: PropTypes.instanceOf(moment),
   selectHandler: PropTypes.func,
+};
+
+Week.defaultProps = {
+  bookings: [],
+  selected: moment().startOf('day'),
+  selectHandler: null,
 };

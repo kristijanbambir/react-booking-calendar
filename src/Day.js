@@ -19,7 +19,7 @@ Day.propTypes = {
 
 Day.defaultProps = {
   className: '',
-  clickHandler: undefined,
+  clickHandler: null,
 };
 
 export default Day;

@@ -21,8 +21,8 @@
     "url": "https://github.com/kristijanbambir/react-booking-calendar.git"
   },
   "dependencies": {
-    "babel-runtime": "~6.26.0",
-    "moment": "2.x",
+    "babel-runtime": "^6.26.0",
+    "moment": "^2.19.1",
     "prop-types": "^15.6.0"
   },
   "devDependencies": {
@@ -34,9 +34,9 @@
     "babel-preset-stage-0": "6.24.1",
     "css-loader": "~0.28.7",
     "es5-shim": "~4.5.9",
-    "eslint": "^4.8.0",
-    "eslint-config-airbnb": "^16.0.0",
-    "eslint-plugin-import": "^2.7.0",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.4.0",
     "jasmine": "~2.8.0",
@@ -53,7 +53,7 @@
     "sass-loader": "^6.0.6",
     "style-loader": "~0.19.0",
     "webpack": "^3.6.0",
-    "webpack-dev-server": "~2.9.1"
+    "webpack-dev-server": "^2.9.3"
   },
   "peerDependencies": {
     "react": "16.x"

@@ -88,9 +88,9 @@ export default class BookingCalendar extends Component {
           <div className='header-content'>
             {this.renderMonthLabel()}
             <button className='icon-previous' disabled={this.state.previousDisabled} onClick={this.handlePrevious}>
-              {'<'}
+              &lt;
             </button>
-            <button className='icon-next' onClick={this.handleNext}>{'>'}</button>
+            <button className='icon-next' onClick={this.handleNext}>&gt;</button>
           </div>
         </div>
         <DayNames />
@@ -105,7 +105,7 @@ BookingCalendar.propTypes = {
   bookings: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
   clickable: PropTypes.bool,
   disableHistory: PropTypes.bool,
-  selected: PropTypes.object,
+  selected: PropTypes.instanceOf(moment),
 };
 
 BookingCalendar.defaultProps = {
